@@ -1,7 +1,9 @@
 package modelo;
 
-import jakarta.persistence.*;
 
+
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 //@Entity  indica que essa classe é uma entidade da JPA
