@@ -1,10 +1,11 @@
-package modelo;
+package loja.modelo;
 
 
 
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 //@Entity  indica que essa classe é uma entidade da JPA
 //@Table, utiliza quando o nome da tabela no banco de dados é diferente do nome da classe
@@ -18,7 +19,19 @@ public class Produto {
     private String nome;
     private String descricao;
     private BigDecimal preco;
+    private LocalDate dataCadastro = LocalDate.now();
 
+    @ManyToOne
+    private Categoria categoria;
+
+
+
+    public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
 
     public Long getId() {
         return id;
